@@ -1,9 +1,1 @@
-<div class="container" >
-  <app-categories class="categoty-buttons" (categorySelected)="onCategorySelected($event)"></app-categories>
-  <div class="announcements" *ngFor="let announcement of filteredAnnouncements">
-    <app-announcement [title]="announcement.title" [message]="announcement.message" [author]="announcement.author"></app-announcement>
-  </div>
-</div>
-  
-
-
+<router-outlet></router-outlet>
