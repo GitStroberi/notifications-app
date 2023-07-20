@@ -14,6 +14,7 @@ export class AppComponent {
 
   announcements: Announcement[] = [
     {
+      id: 1,
       title: 'New Announcement 1',
       message: 'This is a new announcement 1',
       author: 'Admin',
@@ -23,6 +24,7 @@ export class AppComponent {
       }
     },
     {
+      id: 2,
       title: 'New Announcement 2',
       message: 'This is a new announcement 2',
       author: 'Admin',
@@ -32,6 +34,7 @@ export class AppComponent {
       }
     },
     {
+      id: 3,
       title: 'New Announcement 3',
       message: 'This is a new announcement 3',
       author: 'Admin',

@@ -1,0 +1,25 @@
+<div class="content">
+    <form>
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" [(ngModel)]="title" name="title" required> 
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select [(ngModel)]="selectedCategory" name="category" required matNativeControl>
+                <div *ngFor="let category of categories">
+                    <mat-option [value]="category">{{category.name}}</mat-option>
+                </div>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Leave a message</mat-label>
+            <textarea matInput placeholder="Message" [(ngModel)]="message" name="message" required></textarea>
+        </mat-form-field>
+        <div class="buttons">
+            <button mat-raised-button color="primary" [routerLink]="''">Cancel</button>
+            <button mat-raised-button color="primary" (click)="editAnnouncement()">Edit</button>
+            <button mat-raised-button color="primary">Delete</button>
+        </div>
+    </form>
+</div>

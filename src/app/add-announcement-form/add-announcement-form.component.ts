@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Category } from '../category';
+import { AnnouncementService } from '../services/announcement.service';
+import { Announcement } from '../announcement';
 
 @Component({
   selector: 'app-add-announcement-form',
@@ -10,6 +12,11 @@ export class AddAnnouncementFormComponent {
   title: string;
   message: string;
   selectedCategory: Category;
+
+  announcementsLength: number;
+
+  constructor (private announcementService : AnnouncementService) {}
+  
   categories: Category[] = [
     {
       name: 'General',
@@ -26,8 +33,15 @@ export class AddAnnouncementFormComponent {
   ];
 
   addAnnouncement() {
-    console.log(this.title);
-    console.log(this.message);
-    console.log(this.selectedCategory);
+    const announcement: Announcement = {
+      id: 0, ///this is here because the backend requires an id
+      author: "Admin",
+      title: this.title,
+      message: this.message,
+      category: this.selectedCategory
+    };
+    this.announcementService.addAnnouncement(announcement).subscribe(() => {
+      console.log('Announcement added successfully' + announcement.id);
+    });
   }
 }

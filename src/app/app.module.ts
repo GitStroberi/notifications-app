@@ -16,6 +16,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
+import { AnnouncementService } from './services/announcement.service';
+import { EditAnnouncementFormComponent } from './edit-announcement-form/edit-announcement-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { RouterModule } from '@angular/router';
     ByAuthorPipe,
     CategoriesComponent,
     AddAnnouncementFormComponent,
-    HomeComponent
+    HomeComponent,
+    EditAnnouncementFormComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [AnnouncementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

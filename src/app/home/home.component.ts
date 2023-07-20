@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Category } from '../category';
 import { Announcement } from '../announcement';
+import { AnnouncementService } from '../services/announcement.service';
 
 
 @Component({
@@ -9,39 +10,20 @@ import { Announcement } from '../announcement';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  constructor (private announcementService : AnnouncementService) { }
+
   selectedCategory: Category;
 
-  announcements: Announcement[] = [
-    {
-      title: 'New Announcement 1',
-      message: 'This is a new announcement 1',
-      author: 'Admin',
-      category: {
-        name: 'General',
-        id: 1,
-      }
-    },
-    {
-      title: 'New Announcement 2',
-      message: 'This is a new announcement 2',
-      author: 'Admin',
-      category: {
-        name: 'Course',
-        id: 2,
-      }
-    },
-    {
-      title: 'New Announcement 3',
-      message: 'This is a new announcement 3',
-      author: 'Admin',
-      category: {
-        name: 'Laboratory',
-        id: 3,
-      }
-    }
-  ];
+  announcements: Announcement[];
+  filteredAnnouncements: Announcement[];
 
-  filteredAnnouncements: Announcement[] = this.announcements;
+  ngOnInit() {
+    this.announcementService.serviceCall();
+    this.announcementService.getAnnouncements().subscribe(announcements => {
+      this.announcements = announcements;
+      this.filteredAnnouncements = announcements;
+    });
+  }
 
   onCategorySelected(category: Category) {
     if(!category) {
