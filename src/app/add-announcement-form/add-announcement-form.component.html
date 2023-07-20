@@ -5,6 +5,7 @@
             <input matInput placeholder="Title" [(ngModel)]="title" name="title" required> 
         </mat-form-field>
         <mat-form-field>
+            <mat-label>Category</mat-label>
             <mat-select [(ngModel)]="selectedCategory" name="category" required matNativeControl>
                 <div *ngFor="let category of categories">
                     <mat-option [value]="category">{{category.name}}</mat-option>
@@ -16,8 +17,8 @@
             <textarea matInput placeholder="Message" [(ngModel)]="message" name="message" required></textarea>
         </mat-form-field>
         <div class="buttons">
-            <button mat-raised-button color="primary" (click)="addAnnouncement()">Submit</button>
             <button mat-raised-button color="primary" [routerLink]="''">Cancel</button>
+            <button mat-raised-button color="primary" (click)="addAnnouncement()">Submit</button>
         </div>
     </form>
 </div>
