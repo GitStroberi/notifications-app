@@ -5,8 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { ByAuthorPipe } from './byauthor.pipe';
 import { CategoriesComponent } from './categories/categories.component';
-import { AddAnnouncementFormComponent } from './add-announcement-form/add-announcement-form.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -18,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { AnnouncementService } from './services/announcement.service';
 import { EditAnnouncementFormComponent } from './edit-announcement-form/edit-announcement-form.component';
+import { AddAnnouncementFormComponent } from './add-announcement-form/add-announcement-form.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { EditAnnouncementFormComponent } from './edit-announcement-form/edit-ann
     AppRoutingModule,
     RouterModule,
     MatInputModule,
+    HttpClientModule,
   ],
   providers: [AnnouncementService],
   bootstrap: [AppComponent]

@@ -20,25 +20,26 @@ export class AddAnnouncementFormComponent {
   categories: Category[] = [
     {
       name: 'General',
-      id: 1,
+      id: "1",
     },
     {
       name: 'Course',
-      id: 2,
+      id: "2",
     },
     {
       name: 'Laboratory',
-      id: 3,
+      id: "3",
     }
   ];
 
   addAnnouncement() {
     const announcement: Announcement = {
-      id: 0, ///this is here because the backend requires an id
+      id: "", ///this is here because the backend requires an id
       author: "Admin",
       title: this.title,
       message: this.message,
-      category: this.selectedCategory
+      categoryId: this.selectedCategory.id,
+      imageUrl: "",
     };
     this.announcementService.addAnnouncement(announcement).subscribe(() => {
       console.log('Announcement added successfully' + announcement.id);

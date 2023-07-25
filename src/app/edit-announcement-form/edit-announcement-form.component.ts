@@ -13,18 +13,18 @@ import { DomElementSchemaRegistry } from '@angular/compiler';
 export class EditAnnouncementFormComponent {
   title: string;
   message: string;
-  selectedCategory: Category;
+  selectedCategoryId: string;
   announcement: Announcement;
 
   constructor (private announcementService : AnnouncementService, private route : ActivatedRoute) {}
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id: string = this.route.snapshot.paramMap.get('id');
     this.announcementService.getAnnouncementById(id).subscribe(announcement => {
       this.announcement = announcement;
       this.title = announcement.title;
       this.message = announcement.message;
-      this.selectedCategory = announcement.category;
+      this.selectedCategoryId = announcement.categoryId;
     });
   }
 
@@ -34,14 +34,12 @@ export class EditAnnouncementFormComponent {
       author: "Admin",
       title: this.title,
       message: this.message,
-      category: this.selectedCategory
+      categoryId: this.selectedCategoryId,
+      imageUrl: ""
     };
     console.log(announcement);
-    this.announcementService.editAnnouncement(this.announcement.id).subscribe((foundAnnouncement) => {
-      foundAnnouncement.title = announcement.title;
-      foundAnnouncement.message = announcement.message;
-      foundAnnouncement.category = announcement.category;
-      console.log('Announcement edited successfully' + announcement.id);
+    this.announcementService.updateAnnouncement(announcement.id).subscribe(() => {
+      console.log('Announcement updated successfully' + announcement.id);
     }
     );
   }
@@ -49,21 +47,22 @@ export class EditAnnouncementFormComponent {
   deleteAnnouncement() {
     this.announcementService.deleteAnnouncement(this.announcement.id).subscribe(() => {
       console.log('Announcement deleted successfully' + this.announcement.id);
-    });
+    }
+    );
   }
   
   categories: Category[] = [
     {
       name: 'General',
-      id: 1,
+      id: "1",
     },
     {
       name: 'Course',
-      id: 2,
+      id: "2",
     },
     {
       name: 'Laboratory',
-      id: 3,
+      id: "3",
     }
   ];
 }

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 interface Category {
   name: string;
-  id: number;
+  id: string;
 }
 
 @Component({
@@ -15,15 +15,15 @@ export class CategoriesComponent {
   categories: Category[] = [
     {
       name: 'General',
-      id: 1,
+      id: "1",
     },
     {
       name: 'Course',
-      id: 2,
+      id: "2",
     },
     {
       name: 'Laboratory',
-      id: 3,
+      id: "3",
     }
   ];
 

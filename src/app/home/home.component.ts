@@ -12,7 +12,7 @@ import { AnnouncementService } from '../services/announcement.service';
 export class HomeComponent {
   constructor (private announcementService : AnnouncementService) { }
 
-  selectedCategory: Category;
+  selectedCategoryId: string;
 
   announcements: Announcement[];
   filteredAnnouncements: Announcement[];
@@ -30,7 +30,7 @@ export class HomeComponent {
       this.filteredAnnouncements = this.announcements;
       return;
     }
-    this.selectedCategory = category;
-    this.filteredAnnouncements = this.announcements.filter(announcement => announcement.category.id === category.id);
+    this.selectedCategoryId = category.id;
+    this.filteredAnnouncements = this.announcements.filter(announcement => announcement.categoryId === category.id);
   }
 }
