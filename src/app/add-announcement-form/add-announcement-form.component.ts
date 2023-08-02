@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Category } from '../category';
 import { AnnouncementService } from '../services/announcement.service';
 import { Announcement } from '../announcement';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-add-announcement-form',
@@ -15,7 +16,7 @@ export class AddAnnouncementFormComponent {
 
   announcementsLength: number;
 
-  constructor (private announcementService : AnnouncementService) {}
+  constructor (private announcementService : AnnouncementService, private notificationService : NotificationService) {}
   
   categories: Category[] = [
     {
@@ -41,8 +42,7 @@ export class AddAnnouncementFormComponent {
       categoryId: this.selectedCategory.id,
       imageUrl: "",
     };
-    this.announcementService.addAnnouncement(announcement).subscribe(() => {
-      console.log('Announcement added successfully' + announcement.id);
-    });
+    this.announcementService.addAnnouncement(announcement).subscribe((r => 
+      this.notificationService.sendMessage("BroadcastMessage", [r])));
   }
 }

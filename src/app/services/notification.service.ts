@@ -19,7 +19,7 @@ export class NotificationService {
   initWebSocket() {
     this.connection = new HubConnectionBuilder()
     .configureLogging(signalR.LogLevel.Information)
-    .withUrl('https://localhost:7166/hub/notifications')
+    .withUrl('http://localhost:7081/hub/notifications')
     .build();
 
 

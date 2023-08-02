@@ -17,12 +17,12 @@ export class HomeComponent {
 
   announcements: Announcement[];
   filteredAnnouncements: Announcement[];
-  websocketConn: WebSocket;
 
   notificationMessage: string;
 
   ngOnInit() {
-    this.websocketConn = new WebSocket("ws://localhost:7166/hub/notifications");
+    //initialize web socket
+    this.notificationService.initWebSocket();
 
     this.notificationService.notificationSubject.subscribe(
       hasNotifications => this.notificationMessage = 
