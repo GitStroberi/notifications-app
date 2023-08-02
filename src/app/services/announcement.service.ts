@@ -8,11 +8,12 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AnnouncementService {
-  private apiUrl = 'https://newsapi20221108120432.azurewebsites.net/api/Announcements';
+  private apiUrl = 'http://localhost:7081/Announcement';
 
   readonly httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      responseType: 'text'
     })
   };
 
@@ -35,9 +36,9 @@ export class AnnouncementService {
     return this.http.post<Announcement>(this.apiUrl, announcement);
   }
 
-  updateAnnouncement(id: string): Observable<Announcement> {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.put<Announcement>(url, id);
+  updateAnnouncement(announcement: Announcement): Observable<Announcement> {
+    const url = `${this.apiUrl}/${announcement.id}`;
+    return this.http.put<Announcement>(url, announcement);
   }
 
   deleteAnnouncement(id: string): Observable<Announcement> {

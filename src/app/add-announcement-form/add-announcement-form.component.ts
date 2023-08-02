@@ -34,7 +34,7 @@ export class AddAnnouncementFormComponent {
 
   addAnnouncement() {
     const announcement: Announcement = {
-      id: "", ///this is here because the backend requires an id
+      id: undefined, ///this is here because the backend requires an id
       author: "Admin",
       title: this.title,
       message: this.message,

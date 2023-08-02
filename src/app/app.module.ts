@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { AnnouncementService } from './services/announcement.service';
 import { EditAnnouncementFormComponent } from './edit-announcement-form/edit-announcement-form.component';
 import { AddAnnouncementFormComponent } from './add-announcement-form/add-announcement-form.component';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { AddAnnouncementFormComponent } from './add-announcement-form/add-announ
     MatInputModule,
     HttpClientModule,
   ],
-  providers: [AnnouncementService],
+  providers: [AnnouncementService, NotificationService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

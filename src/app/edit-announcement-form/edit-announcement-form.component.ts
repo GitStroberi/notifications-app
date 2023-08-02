@@ -38,7 +38,7 @@ export class EditAnnouncementFormComponent {
       imageUrl: ""
     };
     console.log(announcement);
-    this.announcementService.updateAnnouncement(announcement.id).subscribe(() => {
+    this.announcementService.updateAnnouncement(announcement).subscribe(() => {
       console.log('Announcement updated successfully' + announcement.id);
     }
     );

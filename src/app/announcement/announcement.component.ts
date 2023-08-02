@@ -12,6 +12,4 @@ export class AnnouncementComponent {
   @Input() announcement: Announcement;
 
   constructor (private announcementService : AnnouncementService) { }
-
-  
 }
