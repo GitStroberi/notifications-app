@@ -1,8 +1,8 @@
 <div class="select">
-    <button color="primary" class="button" (click)="selectCategory(category)" mat-raised-button *ngFor="let category of categories">
+    <button color="primary" (click)="selectCategory(category)" mat-raised-button *ngFor="let category of categories">
       {{ category.name }}
     </button>
-    <button color="primary" class="button" (click)="resetCategory()" mat-raised-button>
+    <button color="primary" (click)="resetCategory()" mat-raised-button>
         All
     </button>
 </div>

@@ -1,7 +1,7 @@
 .post {
-    margin-top: 40px;
+    
     padding: 10px;
-    max-width: auto;
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -10,4 +10,11 @@
 
 mat-card-content {
     padding-top: 30px;
+    overflow-wrap: break-word;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
 }
